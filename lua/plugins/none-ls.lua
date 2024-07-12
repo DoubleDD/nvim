@@ -11,9 +11,5 @@ return {
 				null_ls.builtins.formatting.rubocop,
 			},
 		})
-		local wk = require("which-key")
-		wk.register({
-			["<leader>f"] = { "<cmd>lua vim.lsp.buf.format()<CR>", "格式化" },
-		})
 	end,
 }
