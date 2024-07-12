@@ -11,9 +11,6 @@ return {
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 
       local wk = require("which-key")
-      wk.register({
-        ["<C-n>"] = { "<cmd>Neotree toggle<CR>" },
-      })
 
       -- leader
       wk.register({
