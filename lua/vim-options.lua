@@ -5,8 +5,6 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set clipboard=unnamed")
 vim.cmd("set termguicolors")
 vim.g.mapleader = " "
--- vim.g.background = "light"
--- vim.g.transparent_background = true
 
 vim.opt.swapfile = false
 
