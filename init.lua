@@ -14,6 +14,3 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("lazy").setup("plugins")
-
-vim.g.background = "light"
-vim.g.transparent_background = true
