@@ -25,7 +25,7 @@ return {
 			{ "<leader>8", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Buffer 8" },
 			{ "<leader>9", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Buffer 9" },
 			{ "<leader>bd", "<cmd>bdelete %<CR>", desc = "关闭当前Buffer" },
-			{ "<leader>bf", "<cmd>Neotree buffers reveal float<CR>", desc = "浮动文件树" },
+			{ "<leader>bf", "<cmd>Neotree buffers reveal float<CR>", desc = "浮动Buffer树" },
 			{ "<leader>bn", "<cmd>BufferLineCycleNext<CR>", desc = "下一个Buffer" },
 			{ "<leader>bo", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>", desc = "关闭其他Buffer" },
 			{ "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", desc = "上一个Buffer" },
@@ -41,10 +41,11 @@ return {
 
 			{ "<leader>m", "<cmd>Mason<CR>", desc = "Mason" },
 
-			{ "<leader>s", group = "搜索" },
-			{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "查找文件" },
-			{ "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "打开最近文件", remap = false },
-			{ "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "搜索文件内容" },
+			{ "<leader>f", group = "查找" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "查找文件" },
+			{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "打开最近文件", remap = false },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "搜索文件内容" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffer搜索" },
 		},
 		config = function()
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
