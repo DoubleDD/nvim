@@ -1,9 +1,14 @@
+-- 使用空格代替 tab
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+-- 4个空格代替一个tab
+vim.cmd("set tabstop=4")
+vim.cmd("set softtabstop=4")
+-- 自动缩进4个空格
+vim.cmd("set shiftwidth=4")
+-- 和系统剪切板集成
 vim.cmd("set clipboard=unnamed")
 vim.cmd("set termguicolors")
+-- 使用 空格 作为<leader>键
 vim.g.mapleader = " "
 
 vim.opt.swapfile = false

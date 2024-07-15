@@ -17,6 +17,7 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
+            -- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")

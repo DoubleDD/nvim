@@ -32,8 +32,8 @@ return {
 
 			{ "<leader>e", "<cmd>Neotree toggle<CR>", desc = "文件树" },
 
-			{ "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", desc = "格式化" },
 			{ "<leader>g", group = "lsp" },
+			{ "<leader>gf", "<cmd>lua vim.lsp.buf.format()<CR>", desc = "格式化" },
 			{ "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "hover", mode = "n" },
 			{ "<leader>gc", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "code_action" },
 			{ "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "跳转到定义" },
