@@ -9,5 +9,13 @@ return {
   config = function()
     -- vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
     require("transparent").clear_prefix("NeoTree")
+    require("neo-tree").setup({
+      filesystem = {
+        follow_current_file = { enabled = true },
+      },
+      buffers = {
+        follow_current_file = { enabled = true },
+      },
+    })
   end,
 }
