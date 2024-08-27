@@ -37,6 +37,7 @@ return {
       { "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "hover", mode = "n" },
       { "<leader>gc", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "code_action" },
       { "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "跳转到定义" },
+      { "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "跳转到实现类" },
       { "<leader>gu", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "显示引用列表" },
 
       { "<leader>m", "<cmd>Mason<CR>", desc = "Mason" },
