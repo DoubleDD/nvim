@@ -29,12 +29,11 @@ return {
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.ts",
         callback = function()
-          -- 格式化代码
-          vim.lsp.buf.format({ async = false })
-
           -- 自动优化导入
           vim.cmd("TSLspImportAll")
           vim.cmd("TSLspOrganize")
+          -- 格式化代码
+          vim.lsp.buf.format({ async = false })
         end,
       })
     end,
