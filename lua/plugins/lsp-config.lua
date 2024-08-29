@@ -20,9 +20,6 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
       lspconfig.solargraph.setup({
         capabilities = capabilities,
       })
@@ -31,6 +28,16 @@ return {
       })
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
+      })
+      lspconfig.jsonls.setup({
+        capabilities = capabilities,
+        settings = {
+          json = {
+            format = {
+              enable = true,
+            },
+          },
+        },
       })
       lspconfig.gopls.setup({
         settings = {
@@ -45,7 +52,7 @@ return {
       })
       lspconfig.angularls.setup({
         -- 可以添加更多设置，比如 on_attach、capabilities 等等
-        capabilities = capabilities,
+        -- capabilities = capabilities,
         flags = {
           debounce_text_changes = 150,
         },
