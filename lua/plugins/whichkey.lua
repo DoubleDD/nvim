@@ -30,7 +30,7 @@ return {
       { "<leader>bo", "<cmd>BufferLineCloseLeft<CR><cmd>BufferLineCloseRight<CR>", desc = "关闭其他Buffer" },
       { "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", desc = "上一个Buffer" },
 
-      { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "文件树" },
+      { "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", desc = "文件树" },
 
       { "<leader>g", group = "lsp" },
       { "<leader>gf", "<cmd>lua vim.lsp.buf.format()<CR>", desc = "格式化" },
