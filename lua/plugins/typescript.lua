@@ -33,8 +33,8 @@ return {
       local ts_utils = require("nvim-lsp-ts-utils")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       -- tsserver 设置
-      require("lspconfig").tsserver.setup({
-        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+      require("lspconfig").ts_ls.setup({
+        filetypes = { "javascript","javascript.jsx","typescript", "typescriptreact", "typescript.tsx" },
         capabilities = capabilities,
         -- cmd = { "typescript-language-server", "--stdio" },
         on_attach = function(client, bufnr)

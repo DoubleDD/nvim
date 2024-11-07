@@ -114,7 +114,21 @@ return {
           "StatusLineNC",
           "EndOfBuffer",
         },
-        extra_groups = {}, -- table: additional groups that should be cleared
+        extra_groups = {
+          -- Lazy 插件的弹窗
+          "LazyNormal",
+          -- Mason 插件的弹窗
+          "MasonNormal",
+          -- Telescope 插件的相关高亮组
+          "TelescopeNormal", -- 弹窗主区域
+          "TelescopeBorder", -- 弹窗边框
+          "TelescopePromptNormal", -- 搜索提示区域
+          "TelescopePromptBorder", -- 搜索提示边框
+          "TelescopeResultsNormal", -- 搜索结果区域
+          "TelescopeResultsBorder", -- 搜索结果边框
+          "TelescopePreviewNormal", -- 预览区域
+          "TelescopePreviewBorder", -- 预览边框
+        }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
       vim.cmd([[TransparentEnable]])
@@ -124,7 +138,27 @@ return {
     "stevearc/dressing.nvim",
     config = function()
       require("dressing").setup({
-        input = { enabled = false },
+        input = {
+          enabled = false,
+          -- 输入框配置
+          border = "rounded", -- 边框样式，可以是 'rounded', 'single', 'double', 'solid', 'shadow'
+          win_options = {
+            winblend = 0, -- 控制透明度 (0 表示不透明, 100 表示完全透明)
+          },
+        },
+        select = {
+          -- 选择列表配置
+          backend = { "telescope", "builtin" }, -- 可以选择后端，比如使用 telescope
+          builtin = {
+            border = "rounded", -- 边框样式
+            win_options = {
+              winblend = 0, -- 控制透明度
+            },
+          },
+          telescope = {
+            -- 如果使用 telescope 作为选择列表后端，可以在这里配置 telescope
+          },
+        },
       })
     end,
   },
