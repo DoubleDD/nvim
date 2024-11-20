@@ -47,6 +47,88 @@ return {
       { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "打开最近文件", remap = false },
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "搜索文件内容" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffer搜索" },
+
+      -- 代码重构
+      { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "变量重命名" },
+
+      -- 设置 DAP 键绑定
+      {
+        "<F5>",
+        function()
+          require("dap").continue()
+        end,
+        desc = "continue",
+      },
+      {
+        "<F10>",
+        function()
+          require("dap").step_over()
+        end,
+        desc='step_over'
+      },
+      {
+        "<F7>",
+        function()
+          require("dap").step_into()
+        end,
+        desc='step_into'
+      },
+      {
+        "<F8>",
+        function()
+          require("dap").step_out()
+        end,
+      },
+      {
+        "<Leader>b",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc='toggle_breakpoint'
+      },
+      {
+        "<Leader>B",
+        function()
+          require("dap").set_breakpoint()
+        end,
+        desc='set_breakpoint'
+      },
+      {
+        "<Leader>lp",
+        function()
+          require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+        end,
+        desc='set_breakpoint Log message'
+      },
+      {
+        "<Leader>dr",
+        function()
+          require("dap").repl.open()
+        end,
+        desc='repl.open()'
+      },
+      {
+        "<Leader>dl",
+        function()
+          require("dap").run_last()
+        end,
+        desc='run_last'
+      },
+      -- 设置 DAP UI 键绑定
+      {
+        "<Leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc='Debug视图'
+      },
+      {
+        "<Leader>de",
+        function()
+          require("dapui").eval()
+        end,
+        desc='eval'
+      },
     },
     config = function()
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
