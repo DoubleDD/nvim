@@ -30,15 +30,15 @@ return {
           for _, line in ipairs(lines) do
             if string.sub(line, 1, 6) == "Error:" then
               vim.notify(line, vim.log.levels.WARN)
-              local row_match = string.match(line, "Caddyfile:(%d+):")
+              local row_match = string.match(line, "Caddyfile:(%d+)")
               local row = row_match and tonumber(row_match) or 0
 
               -- 提取更简洁的错误信息
-              local error_message = string.match(line, "Caddyfile:%d+:(.*)") -- 使用 string.match 提取
+              local error_message = string.match(line, "caddyfile:(.*)") -- 使用 string.match 提取
               if error_message then -- 确保匹配成功
                 error_message = string.sub(error_message, 2) --去除第一个空格
               else
-                error_message = string.sub(line, 8) -- 否则使用原来的方法，去除 Error: 前缀
+                error_message = line -- 否则使用原来的方法，去除 Error: 前缀
               end
 
               table.insert(diagnostics, {
