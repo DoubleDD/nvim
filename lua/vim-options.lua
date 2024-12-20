@@ -22,3 +22,14 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
 
+-- 设置文件类型
+vim.filetype.add({
+  filename = {
+    ["Caddyfile"] = "caddyfile",
+  },
+  pattern = {
+    [".*%.caddy"] = "caddyfile",
+  },
+})
+
+vim.lsp.set_log_level("debug")
