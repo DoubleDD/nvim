@@ -39,6 +39,12 @@ return {
       { "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "跳转到定义" },
       { "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "跳转到实现类" },
       { "<leader>gu", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "显示引用列表" },
+      { "<leader>go", "<cmd>Vista!!<CR>", desc = "显示Outline" },
+      -- 代码重构
+      { "<leader>gr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "变量重命名" },
+
+      -- 可选：设置键绑定快速打开 vista 侧边栏
+      -- vim.keymap.set("n", "<leader>go", ":Vista!!<CR>", { silent = true, noremap = true })
 
       { "<leader>m", "<cmd>Mason<CR>", desc = "Mason" },
 
@@ -48,8 +54,6 @@ return {
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "搜索文件内容" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffer搜索" },
 
-      -- 代码重构
-      { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "变量重命名" },
 
       -- 设置 DAP 键绑定
       {

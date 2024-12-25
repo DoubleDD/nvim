@@ -3,8 +3,8 @@ return {
   config = function()
     local client = vim.lsp.start_client({
       name = "caddyfilelsp",
-      cmd = { "/Volumes/code/com.github/DoubleDD/learnlsp/main" },
-      on_attach = function(client, bufnr) end,
+      cmd = { "/Users/kedong/code/com.github/DoubleDD/learning/lsp/caddyfile-language-server" },
+      on_attach = function(_, _) end,
     })
 
     if not client then
@@ -13,7 +13,7 @@ return {
     end
 
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = "caddyfile123",
+      pattern = "caddyfile",
       callback = function()
         vim.lsp.buf_attach_client(0, client)
       end,

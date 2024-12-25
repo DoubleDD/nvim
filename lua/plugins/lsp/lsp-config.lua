@@ -20,25 +20,25 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
-      local configs = require("lspconfig.configs")
+      -- local configs = require("lspconfig.configs")
 
       -- 注册新的 LSP
-      if not configs.caddy_lsp then
-        configs.caddy_lsp = {
-          default_config = {
-            cmd = { "/Volumes/code/com.github/DoubleDD/learnlsp/main" },
-            filetypes = { "caddyfile" },
-            root_dir = function(fname)
-              return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-            end,
-            settings = {},
-          },
-        }
-      end
-      -- 启动 LSP
-      lspconfig.caddy_lsp.setup({
-        capabilities = capabilities,
-      })
+      -- if not configs.caddy_lsp then
+      --   configs.caddy_lsp = {
+      --     default_config = {
+      --       cmd = { "/Users/kedong/code/com.github/DoubleDD/learnlsp/caddyfile-language-server" },
+      --       filetypes = { "caddyfile" },
+      --       root_dir = function(fname)
+      --         return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+      --       end,
+      --       settings = {},
+      --     },
+      --   }
+      -- end
+      -- -- 启动 LSP
+      -- lspconfig.caddy_lsp.setup({
+      --   capabilities = capabilities,
+      -- })
       lspconfig.solargraph.setup({
         capabilities = capabilities,
       })
