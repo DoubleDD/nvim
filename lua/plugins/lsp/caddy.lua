@@ -1,5 +1,6 @@
 return {
   "isobit/vim-caddyfile",
+  ft= "caddyfile",
   config = function()
     local client = vim.lsp.start_client({
       name = "caddyfilelsp",

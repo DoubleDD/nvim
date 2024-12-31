@@ -18,27 +18,19 @@ return {
     lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
       local lspconfig = require("lspconfig")
-      -- local configs = require("lspconfig.configs")
 
-      -- 注册新的 LSP
-      -- if not configs.caddy_lsp then
-      --   configs.caddy_lsp = {
-      --     default_config = {
-      --       cmd = { "/Users/kedong/code/com.github/DoubleDD/learnlsp/caddyfile-language-server" },
-      --       filetypes = { "caddyfile" },
-      --       root_dir = function(fname)
-      --         return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-      --       end,
-      --       settings = {},
-      --     },
-      --   }
-      -- end
-      -- -- 启动 LSP
-      -- lspconfig.caddy_lsp.setup({
-      --   capabilities = capabilities,
-      -- })
+      -- swift
+      lspconfig.sourcekit.setup {
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      }
+
       lspconfig.solargraph.setup({
         capabilities = capabilities,
       })
@@ -83,10 +75,10 @@ return {
     config = function()
       local lspkind = require("lspkind")
       lspkind.init({
-        mode = "symbol", -- 显示图标和文本
-        maxwidth = 50, -- 最大宽度
+        mode = "symbol",       -- 显示图标和文本
+        maxwidth = 50,         -- 最大宽度
         ellipsis_char = "...", -- 超出部分显示省略号
-        preset = "default", -- 预设样式
+        preset = "default",    -- 预设样式
         symbol_map = {
           Text = "󰉿",
           Method = "󰆧",

@@ -12,8 +12,6 @@ return {
         end,
         desc = "Buffer Local Keymaps (which-key)",
       },
-      { "<leader>hc", "<cmd>HopChar2<CR>", desc = "光标跳转" },
-      { "<leader>hw", "<cmd>HopWord<CR>", desc = "光标跳转" },
 
       { "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Buffer 1" },
       { "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Buffer 2" },
