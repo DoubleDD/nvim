@@ -34,7 +34,7 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       -- tsserver 设置
       require("lspconfig").ts_ls.setup({
-        filetypes = { "javascript","javascript.jsx","typescript", "typescriptreact", "typescript.tsx" },
+        filetypes = { "javascript", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
         capabilities = capabilities,
         -- cmd = { "typescript-language-server", "--stdio" },
         on_attach = function(client, bufnr)
@@ -47,7 +47,7 @@ return {
             eslint_enable_diagnostics = true,
             update_imports_on_move = true,
             require_confirmation_on_move = false,
-            formatter = "prettier", -- 使用 Prettier 格式化
+            formatter = "prettier",  -- 使用 Prettier 格式化
             eslint_bin = "eslint_d", -- 使用 eslint_d 提高性能
             eslint_enable_code_actions = true,
             complete_parens = true,
