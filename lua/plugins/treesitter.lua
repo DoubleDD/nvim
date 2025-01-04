@@ -11,7 +11,13 @@ return {
           additional_vim_regex_highlighting = false,
         },
         indent = { enable = true },
+        fold = {
+          enable = true,                           -- 启用基于 Treesitter 的折叠
+          foldmethod = "expr",                     -- 使用表达式折叠
+          foldexpr = "nvim_treesitter#foldexpr()", -- Treesitter 提供的折叠表达式
+        },
       })
+      vim.opt.foldmethod = "indent" --indent 或者 "expr" 或 "syntax"
     end,
   },
   -- rainbow-delimiters.nvim 插件
@@ -28,7 +34,7 @@ return {
         },
         query = {
           [""] = "rainbow-delimiters", -- 使用默认查询
-          lua = "rainbow-blocks", -- 对于 Lua 语言，使用块高亮
+          lua = "rainbow-blocks",      -- 对于 Lua 语言，使用块高亮
         },
         highlight = {
           "RainbowDelimiterRed",
