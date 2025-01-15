@@ -20,6 +20,9 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
 
+      -- 配置 XML LSP 服务器
+      lspconfig.xmlformatter.setup {}
+
       -- swift
       lspconfig.sourcekit.setup {
         capabilities = {
