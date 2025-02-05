@@ -19,6 +19,27 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
+      -- helm
+      lspconfig.helm_ls.setup {
+        settings = {
+          ['helm-ls'] = {
+            yamlls = {
+              enabled = true,
+              enabledForFilesGlob = "*.{yaml,yml}",
+              diagnosticsLimit = 50,
+              showDiagnosticsDirectly = false,
+              path = "/Users/kedong/.volta/bin/yaml-language-server",
+              config = {
+                schemas = {
+                  kubernetes = "templates/**",
+                },
+                completion = true,
+                hover = true,
+                -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+              } }
+          }
+        }
+      }
       -- 安装 Python LSP
       lspconfig.pylsp.setup {
         settings = {

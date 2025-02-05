@@ -33,3 +33,6 @@ vim.filetype.add({
 })
 
 vim.lsp.set_log_level("debug")
+-- 设置默认折叠层级设置为 99，通常足以确保所有内容都展开。
+vim.opt.foldlevel = 99
+vim.opt.laststatus = 3
