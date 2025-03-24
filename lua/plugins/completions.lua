@@ -48,6 +48,7 @@ return {
           { name = "luasnip" }, -- For luasnip users.
           { name = "nvim_lua" },
           { name = "nvim_lsp" },
+          { name = "jedi" }, -- python 代码提示 需安装jedi-language-server 
           { name = "buffer" },
           { name = "path" },
         }),

@@ -9,10 +9,13 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
+vim.g.python3_host_prog = vim.fn.trim(vim.fn.system("which python"))
 
 require("vim-options")
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lsp" }
 })
+

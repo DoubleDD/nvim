@@ -40,32 +40,77 @@ return {
           }
         }
       }
-      -- 安装 Python LSP
+      -- 启用python的静态类型检查
+      lspconfig.pyright.setup {
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              autoImportCompletions = true, -- 自动补全导入
+              autoSearchPaths = true,
+              typeCheckingMode = "strict"
+            }
+          }
+        }
+      }
+      -- 启用 python ruff server ,rust编写的
+      -- lspconfig.ruff.setup({
+      --   cmd = {
+      --     os.getenv("HOME") .. "/miniconda3/bin/ruff",
+      --   },
+      --   init_options = {
+      --     settings = {
+      --       -- Ruff language server settings go here
+      --     }
+      --   }
+      -- })
+      -- vim.api.nvim_create_autocmd("LspAttach", {
+      --   group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
+      --   callback = function(args)
+      --     local client = vim.lsp.get_client_by_id(args.data.client_id)
+      --     if client == nil then
+      --       return
+      --     end
+      --     if client.name == 'ruff' then
+      --       -- Disable hover in favor of Pyright
+      --       client.server_capabilities.hoverProvider = false
+      --     end
+      --   end,
+      --   desc = 'LSP: Disable hover capability from Ruff',
+      -- })
+      -- 启用pylsp
       lspconfig.pylsp.setup {
+        cmd = {
+          os.getenv("HOME") .. "/miniconda3/bin/pylsp", -- 虚拟环境路径
+          -- 或默认全局路径（如/usr/local/bin/pylsp）
+        },
         settings = {
           pylsp = {
             plugins = {
+              pylsp_mypy = { enabled = false },
+              jedi_completion = { fuzzy = true }, -- 启用模糊补全
               pycodestyle = {
-                enabled = false, -- 禁用 pycodestyle
+                enabled = true,
+                max_line_length = 120 -- 添加这个行宽设置
               },
-            },
-          },
+              -- flake8 = { enabled = false },       -- 关闭 flake8
+              -- pyls_isort = { enabled = false },   -- 关闭 isort
+            }
+          }
         },
+        on_attach = function(client, bufnr)
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":!ruff check --fix %", { silent = true })
+          -- vim.api.nvim_command("ruff check --fix %")
+        end,
+
       }
 
       -- 配置 XML LSP 服务器
       lspconfig.xmlformatter.setup {}
 
-      -- swift
-      lspconfig.sourcekit.setup {
-        capabilities = {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true,
-            },
-          },
-        },
-      }
 
       lspconfig.solargraph.setup({
         capabilities = capabilities,
